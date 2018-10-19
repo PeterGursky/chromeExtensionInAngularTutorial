@@ -1,0 +1,21 @@
+{
+  "name": "Element-invibler",
+  "version": "1.0",
+  "description": "Element-invisibler is angular powered extension that allows to invisible certain elements from browsed page",
+  "manifest_version": 2,
+  "permissions": ["storage", "tabs"],
+  "background": {
+    "page": "assets/bg.html"
+  },
+  "browser_action": {
+    "default_title": "Element-invibler"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*", "file:///*/*" ],
+      "js": [ "assets/contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
